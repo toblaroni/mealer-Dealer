@@ -1,4 +1,4 @@
-*** My first ever web application ***
+""" My first ever web application """
 
 - Includes a many-many relationship
 - Uses AJAX
