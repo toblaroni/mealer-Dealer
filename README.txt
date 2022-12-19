@@ -1,4 +1,4 @@
-<h1> My first ever web application </h1>
+*** MY FIRST EVER WEB APPLICATION ***
 
 - Includes a many-many relationship
 - Uses AJAX
