@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+         {% if messages %}
+                {% for message in messages %}
+                    <div class="message-container text-center rounded border border-3 border-info">
+                        <div class="row">
+                            <div class="col-12 pb-3">
+                                {{ message }}
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" onclick="clearMessage()">Ok</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="container h-100 d-flex body-container align-items-center">
+        <div class="add-meal-form w-75 container w-sm-100 border border-info rounded-3 border-2 p-3 p-md-5  bg-light">
+            <div class="row border-bottom border-info border-1">
+                <div class="col font-weight-bold">
+                    <h2>Add Your Meal Deal</h2>
+                    <h5 class="font-weight-normal text-muted">Fill in the form and click submit!</h5>
+                </div>
+            </div>
+            <form action="" method="post">
+                {{ form.csrf_token }}
+                <div class="row pb-3 pt-4">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label for="main">Main</label>
+                            {{ form.main(class_='form-control', id_='main') }}
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label for="snack">Snack</label>
+                            {{ form.snack(class_='form-control', id_='snack') }}
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label for="drink">Drink</label>
+                            {{ form.drink(class_='form-control', id_='drink') }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row pb-2">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            {{ form.description(class_='form-control', id_='description')}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row pb-2">
+                    <div class="col-md-8 col-sm-12">
+                        <div class="form-group">
+                            <label for="name">Give it a name!</label>
+                            {{ form.name(class_='form-control', id_='name') }}
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 pt-4">
+                        {{ form.submit(class_='btn btn-primary', id_='submit') }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

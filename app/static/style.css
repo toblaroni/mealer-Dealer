@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.body-container {
+    background-image: linear-gradient(180deg, lightseagreen, rgb(95, 95, 158));
+    max-width: 100% !important;
+    min-height: 100% !important;
+}
+
+#body-welcome {
+    height: 100%;
+    background-image: linear-gradient(135deg, lightseagreen, blue)
+}
+
+#welcome-container {
+    max-width: 800px;
+}
+
+.header-row {
+    max-width: 450px !important;
+}
+
+.header-row, .card, .add-meal-form, .box-shadow {
+    box-shadow: 0px 0px 10px 0px rgb(83, 83, 83) !important;
+}
+
+.card, .add-meal-form, .settings-container {
+    max-width: 1000px !important;
+}
+
+#profile-text {
+    display: none;
+}
+
+.header-row {
+    padding: 1.5rem !important;
+}
+
+@media only screen and (max-width: 576px) {
+  #profile-text {
+    display: inline;
+  }
+
+  .header-row {
+    padding: 0.5rem !important;
+  }
+}
+
+.navbar-brand {
+    font-size: 1.4rem !important;
+}
+.navbar {
+    font-size: 1.2rem;
+}
+
+.dropdown-menu {
+    left: -150% !important;
+}
+
+.message-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    padding: 5%;
+    z-index: 100;
+    background: white;
+    font-size: larger;
+
+}
+
+.no-shadow {
+    box-shadow: none !important;
+}

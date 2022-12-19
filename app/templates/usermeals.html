@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+         {% if messages %}
+                {% for message in messages %}
+                    <div class="message-container text-center rounded border border-3 border-info">
+                        <div class="row">
+                            <div class="col-12 pb-3">
+                                {{ message }}
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" onclick="clearMessage()">Ok</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="container w-100 pt-4 body-container">
+        <div class="row p-4 bg-light header-row rounded-pill text-center mx-auto">
+            <div class="col">
+                <h3 class="fw-bold">Your Collection.</h3>
+                <p class="fs-5 mb-0">Save meals and view them here.</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                {% if user.meals %}
+                    {% for meal in user.meals %}
+                        <div class="card mb-4 p-3 pb-2 rounded-4 w-75 mx-auto">
+                            <div class="card-body">
+                                <h4 class="card-title meal-card-title fw-bold">{{ meal.name }}</h4>
+                                <p class="card-text">{{ meal.description }}</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><span class="fw-bold">Main: </span>{{ meal.main }}</li>
+                                <li class="list-group-item"><span class="fw-bold">Snack: </span>{{ meal.snack }}</li>
+                                <li class="list-group-item"><span class="fw-bold">Drink: </span>{{ meal.drink }}</li>
+                            </ul>
+                            <div class="card-footer">
+                                <div class="row pt-1 d-flex justify-content-between align-items-center">
+                                    <div class="col-5">
+                                            <span class="fw-bold">Likes </span>{{ meal.likes }}
+                                    </div>
+                                    <div class="col-3 d-flex justify-content-end">
+                                        <a href="{{ url_for('removeMealDeal', meal_id=meal.id ) }}" class="btn btn-info">Remove <img src="../static/heart-fill.svg" alt="Remove from collection"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="row bg-light box-shadow border w-75 mx-auto rounded p-3 mt-3">
+                        <div class="col text-center">
+                            <h1>You currently have no saved meals.</h1>
+                            <a href="{{ url_for('addMealDeal') }}" class="fs-5">Add one.</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
