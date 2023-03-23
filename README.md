@@ -1,8 +1,8 @@
 # Mealer-Dealer
-### MY FIRST EVER WEB APPLICATION
 
 - Includes a many-many relationship
+- Sessions
 - Uses AJAX
-- Users can login and logout
+- Users can change their password
 
 Built using Flask, SQLAlchemy, Javascript and Bootstrap
